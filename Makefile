@@ -21,6 +21,11 @@ all: build test
 build:
 	${GO} build -ldflags '-s -w' ./pkg/...
 
+.PHONY: codecov
+codecov: SHELL := $(shell which bash)
+codecov:
+	bash <(curl -s https://codecov.io/bash) -f ${COVERAGE_PATH}/coverprofile
+
 ${GINKGO}:
 	$(call go-build,./vendor/github.com/onsi/ginkgo/ginkgo)
 

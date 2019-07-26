@@ -8,10 +8,10 @@
 This project aims to provide convince documentation generation for golang based
 projects. The following documentation generations are currently included:
 
-| Input                                                    | Output            | API function                                                                                                                       |
-| -------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [`cli.App`](https://godoc.org/github.com/urfave/cli#App) | Markdown `string` | [`func CliToMan(app *cli.App) (string, error)`](https://godoc.org/github.com/saschagrunert/go-docgen/pkg/docgen#CliToMan)          |
-| [`cli.App`](https://godoc.org/github.com/urfave/cli#App) | Man Page `string` | [`func CliToMarkdown(app *cli.App) (string, error`](https://godoc.org/github.com/saschagrunert/go-docgen/pkg/docgen#CliToMarkdown) |
+| Input                                                     | Output            | API function                                                                                                                       |
+| --------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [`*cli.App`](https://godoc.org/github.com/urfave/cli#App) | Markdown `string` | [`func CliToMan(app *cli.App) (string, error)`](https://godoc.org/github.com/saschagrunert/go-docgen/pkg/docgen#CliToMan)          |
+| [`*cli.App`](https://godoc.org/github.com/urfave/cli#App) | Man Page `string` | [`func CliToMarkdown(app *cli.App) (string, error`](https://godoc.org/github.com/saschagrunert/go-docgen/pkg/docgen#CliToMarkdown) |
 
 ## Contributing
 
