@@ -3,6 +3,7 @@ package writer
 import (
 	"fmt"
 	"io"
+	"sort"
 	"strings"
 	"text/template"
 	"time"
@@ -108,6 +109,7 @@ func prepareFlags(
 		args = append(args, modifiedArg)
 
 	}
+	sort.Strings(args)
 	return args
 }
 
