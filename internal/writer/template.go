@@ -18,7 +18,7 @@ const cliTemplateString = `% {{ .App.Name }}(8) {{ .App.Description }}
 
 # NAME
 
-{{ .App.Name }} - {{ .App.Description }}
+{{ .App.Name }} - {{ .App.Usage }}
 
 # SYNOPSIS
 
