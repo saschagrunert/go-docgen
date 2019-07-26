@@ -175,7 +175,9 @@ func flagDetails(flag cli.Flag) string {
 	}
 	if f, ok := flag.(cli.GenericFlag); ok {
 		description = f.Usage
-		value = f.Value.String()
+		if f.Value != nil {
+			value = f.Value.String()
+		}
 	}
 	if f, ok := flag.(cli.Int64Flag); ok {
 		description = f.Usage
@@ -187,11 +189,15 @@ func flagDetails(flag cli.Flag) string {
 	}
 	if f, ok := flag.(cli.IntSliceFlag); ok {
 		description = f.Usage
-		value = f.Value.String()
+		if f.Value != nil {
+			value = f.Value.String()
+		}
 	}
 	if f, ok := flag.(cli.Int64SliceFlag); ok {
 		description = f.Usage
-		value = f.Value.String()
+		if f.Value != nil {
+			value = f.Value.String()
+		}
 	}
 	if f, ok := flag.(cli.StringFlag); ok {
 		description = f.Usage
@@ -199,7 +205,9 @@ func flagDetails(flag cli.Flag) string {
 	}
 	if f, ok := flag.(cli.StringSliceFlag); ok {
 		description = f.Usage
-		value = f.Value.String()
+		if f.Value != nil {
+			value = f.Value.String()
+		}
 	}
 	if f, ok := flag.(cli.Uint64Flag); ok {
 		description = f.Usage
