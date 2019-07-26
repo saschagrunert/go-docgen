@@ -1,0 +1,11 @@
+*.dll
+*.dylib
+*.exe
+*.exe~
+*.orig
+*.out
+*.so
+*.test
+*_junit.xml
+build
+coverprofile
