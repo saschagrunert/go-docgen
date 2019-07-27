@@ -1,12 +1,11 @@
 export GO111MODULE=off
 
-GO ?= go
-
 BUILD_PATH := $(shell pwd)/build
 BUILD_BIN_PATH := ${BUILD_PATH}/bin
 COVERAGE_PATH := ${BUILD_PATH}/coverage
 JUNIT_PATH := ${BUILD_PATH}/junit
 
+GO := go
 GOLANGCI_LINT := ${BUILD_BIN_PATH}/golangci-lint
 GINKGO := ${BUILD_BIN_PATH}/ginkgo
 
