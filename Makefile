@@ -1,16 +1,21 @@
-export GO111MODULE=off
-
 BUILD_PATH := $(shell pwd)/build
 BUILD_BIN_PATH := ${BUILD_PATH}/bin
 COVERAGE_PATH := ${BUILD_PATH}/coverage
 JUNIT_PATH := ${BUILD_PATH}/junit
 
 GO := go
+# test for go module support
+ifeq ($(shell go help mod >/dev/null 2>&1 && echo true), true)
+export GO_BUILD=GO111MODULE=on $(GO) build -mod=vendor
+else
+export GO_BUILD=$(GO) build
+endif
+
 GOLANGCI_LINT := ${BUILD_BIN_PATH}/golangci-lint
 GINKGO := ${BUILD_BIN_PATH}/ginkgo
 
 define go-build
-	$(shell cd `pwd` && ${GO} build -o $(BUILD_BIN_PATH)/$(shell basename $(1)) $(1))
+	$(shell cd `pwd` && ${GO_BUILD} -o $(BUILD_BIN_PATH)/$(shell basename $(1)) $(1))
 	@echo > /dev/null
 endef
 
@@ -18,7 +23,7 @@ all: build test
 
 .PHONY: build
 build:
-	${GO} build -ldflags '-s -w' ./pkg/...
+	${GO_BUILD} -ldflags '-s -w' ./pkg/...
 
 .PHONY: codecov
 codecov: SHELL := $(shell which bash)
